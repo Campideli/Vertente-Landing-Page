@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { WHATSAPP_LINK } from '../constants';
 
 const Header: React.FC = () => {
@@ -40,71 +42,116 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <a href="#" onClick={handleLogoClick} className="text-xl font-bold text-vertente-orange hover:text-orange-600 transition-colors">
+    <motion.header
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}
+    >
+      <div className="container mx-auto px-4 sm:px-6 py-4">
+        <div className="flex flex-wrap items-center justify-between gap-y-2">
+          <a href="#" onClick={handleLogoClick} className="text-lg sm:text-xl font-bold text-vertente-orange hover:text-orange-600 transition-colors whitespace-nowrap">
             Vertente Treinamentos
           </a>
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Menu Desktop: só aparece em lg ou maior */}
+          <nav className="hidden lg:flex flex-wrap items-center gap-x-4 xl:gap-x-8">
             {navLinks.map((link) => (
               <a 
                 key={link.href} 
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-gray-600 hover:text-vertente-orange font-medium transition-colors"
+                className="text-gray-600 hover:text-vertente-orange font-medium transition-colors whitespace-nowrap px-2 py-1"
               >
                 {link.label}
               </a>
             ))}
           </nav>
-          <div className="flex items-center">
+          <div className="flex items-center gap-x-2">
+            {/* Botão só aparece em lg ou maior */}
             <a 
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-block bg-vertente-orange text-white font-bold py-2 px-6 rounded-lg hover:bg-orange-600 transition-transform transform hover:scale-105"
+              className="hidden xl:inline-block bg-vertente-orange text-white font-bold py-2 px-4 sm:px-6 rounded-lg hover:bg-orange-600 transition-transform transform hover:scale-105 whitespace-nowrap"
             >
               Solicite uma proposta
             </a>
-            <button
+            {/* Botão de menu mobile/tablet: aparece em telas menores que lg */}
+            <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-700 focus:outline-none"
+              className="lg:hidden text-gray-700 focus:outline-none"
               aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
               aria-expanded={isMenuOpen}
+              whileTap={{ scale: 0.85 }}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}></path>
-              </svg>
-            </button>
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </motion.button>
           </div>
         </div>
+        {/* Menu mobile/tablet: aparece em telas menores que lg */}
+        <AnimatePresence>
         {isMenuOpen && (
-          <div className="md:hidden mt-4 bg-white rounded-lg shadow-lg p-4">
-            <nav className="flex flex-col space-y-4">
-              {navLinks.map((link) => (
-                <a 
-                  key={link.href} 
-                  href={link.href} 
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-gray-600 hover:text-vertente-orange font-medium transition-colors text-center"
-                >
-                  {link.label}
-                </a>
-              ))}
-               <a 
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-vertente-orange text-white text-center font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-transform transform hover:scale-105"
+          <>
+            {/* Backdrop escurecido */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black z-40"
+              onClick={() => setIsMenuOpen(false)}
+            />
+            {/* Menu lateral animado */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="fixed top-0 right-0 w-80 max-w-full h-full bg-white z-50 shadow-2xl rounded-l-xl p-6 flex flex-col"
+            >
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="self-end mb-6 text-gray-700 focus:outline-none"
+                aria-label="Fechar menu"
               >
-                Solicite uma proposta
-              </a>
-            </nav>
-          </div>
+                <motion.span
+                  initial={{ rotate: 0 }}
+                  animate={{ rotate: 90 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </motion.span>
+              </button>
+              <nav className="flex flex-col space-y-4 mt-4">
+                {navLinks.map((link) => (
+                  <a 
+                    key={link.href} 
+                    href={link.href} 
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-gray-600 hover:text-vertente-orange font-medium transition-colors text-center"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                 <a 
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-vertente-orange text-white text-center font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-transform transform hover:scale-105"
+                >
+                  Solicite uma proposta
+                </a>
+              </nav>
+            </motion.div>
+          </>
         )}
+        </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

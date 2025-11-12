@@ -1,24 +1,24 @@
-
 import React from 'react';
+import { Users, Sparkles, ArrowLeftRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const PersonalizedIcon = () => (
     <div className="bg-orange-100 text-vertente-orange p-4 rounded-full inline-block">
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm-9 5a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+        <Users className="w-8 h-8" />
     </div>
 );
 
 const QualityIcon = () => (
     <div className="bg-orange-100 text-vertente-orange p-4 rounded-full inline-block">
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-12v4m-2-2h4m5 4v4m-2-2h4M17 3l-1.5 1.5M5 21l1.5-1.5M17 21l-1.5-1.5M5 3l1.5 1.5M9 4.5a.5.5 0 11-1 0 .5.5 0 011 0zM16 4.5a.5.5 0 11-1 0 .5.5 0 011 0zM16 19.5a.5.5 0 11-1 0 .5.5 0 011 0zM9 19.5a.5.5 0 11-1 0 .5.5 0 011 0z"></path></svg>
+        <Sparkles className="w-8 h-8" />
     </div>
 );
 
 const FlexibilityIcon = () => (
     <div className="bg-orange-100 text-vertente-orange p-4 rounded-full inline-block">
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+        <ArrowLeftRight className="w-8 h-8" />
     </div>
 );
-
 
 const ValueProposition: React.FC = () => {
   return (
@@ -35,31 +35,31 @@ const ValueProposition: React.FC = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {/* Card 1 */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform">
-              <PersonalizedIcon />
-              <h3 className="text-xl font-bold text-gray-900 mt-6 mb-3">Atendimento Personalizado</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Entendemos a sua necessidade e montamos o treinamento ideal para a sua equipe e operação.
-              </p>
+              {/* Card 1 */}
+              <div className="bg-white/70 backdrop-blur-lg p-8 rounded-xl shadow-inner shadow-lg border border-gray-200 transition-all duration-300 transform hover:shadow-2xl hover:-translate-y-2 hover:scale-105">
+                <PersonalizedIcon />
+                <h3 className="text-xl font-bold text-gray-900 mt-6 mb-3">Atendimento Personalizado</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Entendemos a sua necessidade e montamos o treinamento ideal para a sua equipe e operação.
+                </p>
+              </div>
+              {/* Card 2 */}
+              <div className="bg-white/70 backdrop-blur-lg p-8 rounded-xl shadow-inner shadow-lg border border-gray-200 transition-all duration-300 transform hover:shadow-2xl hover:-translate-y-2 hover:scale-105">
+                <QualityIcon />
+                <h3 className="text-xl font-bold text-gray-900 mt-6 mb-3">Qualidade e Vivência Prática</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Instrutores experientes que trazem o dia a dia do mercado para a sala de aula.
+                </p>
+              </div>
+              {/* Card 3 */}
+              <div className="bg-white/70 backdrop-blur-lg p-8 rounded-xl shadow-inner shadow-lg border border-gray-200 transition-all duration-300 transform hover:shadow-2xl hover:-translate-y-2 hover:scale-105">
+                <FlexibilityIcon />
+                <h3 className="text-xl font-bold text-gray-900 mt-6 mb-3">Flexibilidade Total</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Treinamentos in company, adaptados à sua agenda e local de preferência.
+                </p>
+              </div>
             </div>
-            {/* Card 2 */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform">
-              <QualityIcon />
-              <h3 className="text-xl font-bold text-gray-900 mt-6 mb-3">Qualidade e Vivência Prática</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Instrutores experientes que trazem o dia a dia do mercado para a sala de aula.
-              </p>
-            </div>
-            {/* Card 3 */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform">
-              <FlexibilityIcon />
-              <h3 className="text-xl font-bold text-gray-900 mt-6 mb-3">Flexibilidade Total</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Treinamentos in company, adaptados à sua agenda e local de preferência.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
     </>

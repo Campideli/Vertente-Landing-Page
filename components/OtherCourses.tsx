@@ -1,4 +1,5 @@
 import React from 'react';
+import { CheckCircle, Users, Monitor } from 'lucide-react';
 import { QUALITY_COURSES, MANAGEMENT_COURSES, IT_COURSES } from '../constants';
 
 interface CourseCategoryProps {
@@ -9,7 +10,7 @@ interface CourseCategoryProps {
 }
 
 const CourseCategory: React.FC<CourseCategoryProps> = ({ title, courses, icon }) => (
-  <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
+  <div className="bg-white/70 backdrop-blur-lg p-8 rounded-lg shadow-inner shadow-lg border border-gray-200 transition-all duration-300 transform hover:shadow-2xl hover:-translate-y-2 hover:scale-105">
     <div className="flex items-center mb-4">
         <div className="bg-orange-100 text-vertente-orange p-3 rounded-full mr-4">
             {icon}
@@ -40,17 +41,17 @@ const OtherCourses: React.FC = () => {
         <CourseCategory 
             title="Qualidade" 
             courses={QUALITY_COURSES} 
-            icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>}
+            icon={<CheckCircle className="w-6 h-6" />}
         />
         <CourseCategory 
             title="Gestão" 
             courses={MANAGEMENT_COURSES} 
-            icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>}
+            icon={<Users className="w-6 h-6" />}
         />
         <CourseCategory 
             title="Informática" 
             courses={IT_COURSES} 
-            icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>}
+            icon={<Monitor className="w-6 h-6" />}
         />
       </div>
     </div>

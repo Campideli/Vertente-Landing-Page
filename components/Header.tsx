@@ -53,7 +53,7 @@ const Header: React.FC = () => {
         <div className="flex flex-wrap items-center justify-between gap-y-2">
           <a href="#" onClick={handleLogoClick} className="flex items-center gap-x-3 text-lg sm:text-xl font-bold text-vertente-orange hover:text-orange-600 transition-colors whitespace-nowrap">
             <img
-              src={getImagePath('Vertente-logo.jpg')}
+              src={getImagePath('Vertente-logo.png')}
               alt="Logo Vertente Treinamentos"
               className="h-10 w-10 sm:h-12 sm:w-12 object-contain drop-shadow"
             />

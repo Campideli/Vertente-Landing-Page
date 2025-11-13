@@ -8,7 +8,7 @@ const About: React.FC = () => {
           {/* Image Column */}
           <div className="order-2 lg:order-1">
             <img 
-              src="./images/Empilhadeira.png" 
+              src="/images/Empilhadeira.png" 
               alt="Capacete de segurança" 
               className="rounded-lg shadow-2xl w-full h-auto object-cover"
               style={{ maxHeight: '45090px' }}

@@ -21,8 +21,8 @@ const Header: React.FC = () => {
     { href: '#sobre', label: 'Sobre' },
     { href: '#treinamentos-seguranca', label: 'Treinamentos de Segurança' },
     { href: '#consultoria', label: 'Consultoria' },
-    { href: '#outros-cursos', label: 'Outros Cursos' },
     { href: '#clientes', label: 'Clientes' },
+    { href: '#outros-cursos', label: 'Outros Cursos' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -50,8 +50,13 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex flex-wrap items-center justify-between gap-y-2">
-          <a href="#" onClick={handleLogoClick} className="text-lg sm:text-xl font-bold text-vertente-orange hover:text-orange-600 transition-colors whitespace-nowrap">
-            Vertente Treinamentos
+          <a href="#" onClick={handleLogoClick} className="flex items-center gap-x-3 text-lg sm:text-xl font-bold text-vertente-orange hover:text-orange-600 transition-colors whitespace-nowrap">
+            <img
+              src="/images/Vertente-logo.jpg"
+              alt="Logo Vertente Treinamentos"
+              className="h-10 w-10 sm:h-12 sm:w-12 object-contain drop-shadow"
+            />
+            <span className="hidden sm:inline">Vertente Treinamentos</span>
           </a>
           {/* Menu Desktop: só aparece em lg ou maior */}
           <nav className="hidden lg:flex flex-wrap items-center gap-x-4 xl:gap-x-8">

@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { WHATSAPP_LINK } from '../constants';
+import { getImagePath } from '../utils';
 
 const Hero: React.FC = () => {
   return (
     <section className="relative h-screen flex items-center justify-center text-center bg-white px-6">
-       <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: "url('/images/Extintor.png')", filter: "grayscale(100%) blur(7px)"}}></div>
+       <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: `url('${getImagePath('Extintor.png')}')`, filter: "grayscale(100%) blur(7px)"}}></div>
        <motion.div
          initial={{ opacity: 0, y: 40 }}
          animate={{ opacity: 1, y: 0 }}

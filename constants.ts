@@ -1,6 +1,12 @@
 
 export const WHATSAPP_LINK = 'https://wa.me/554491671166';
 
+// Helper para gerar caminhos de imagem com o base path correto
+export const getImagePath = (imagePath: string): string => {
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}${imagePath.startsWith('/') ? imagePath.slice(1) : imagePath}`;
+};
+
 export const HIGHLIGHTED_SAFETY_COURSES = [
   'NR 35 - Trabalho em Altura',
   'NR 33 - Espaço Confinado (Trabalhador, Vigia e Supervisor)',

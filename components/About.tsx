@@ -1,4 +1,5 @@
 import React from 'react';
+import { getImagePath } from '../utils';
 
 const About: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ const About: React.FC = () => {
           {/* Image Column */}
           <div className="order-2 lg:order-1">
             <img 
-              src="/images/Empilhadeira.png" 
+              src={getImagePath('Empilhadeira.png')}
               alt="Capacete de segurança" 
               className="rounded-lg shadow-2xl w-full h-auto object-cover"
               style={{ maxHeight: '45090px' }}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { WHATSAPP_LINK } from '../constants';
+import { getImagePath } from '../utils';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,7 +53,7 @@ const Header: React.FC = () => {
         <div className="flex flex-wrap items-center justify-between gap-y-2">
           <a href="#" onClick={handleLogoClick} className="flex items-center gap-x-3 text-lg sm:text-xl font-bold text-vertente-orange hover:text-orange-600 transition-colors whitespace-nowrap">
             <img
-              src="/images/Vertente-logo.jpg"
+              src={getImagePath('Vertente-logo.jpg')}
               alt="Logo Vertente Treinamentos"
               className="h-10 w-10 sm:h-12 sm:w-12 object-contain drop-shadow"
             />

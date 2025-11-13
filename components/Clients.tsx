@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
+import { getImagePath } from '../utils';
 
 const Clients: React.FC = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   const clientLogos = [
-    { name: 'USINA SANTA TEREZINHA', logo: '/images/Usina-logo.png' },
-    { name: 'SPRAYTEC', logo: '/images/Spraytec-logo.png' },
-    { name: 'FORTGREEN', logo: '/images/Fortgreen-logo.png' },
-    { name: 'PERFILEVE', logo: '/images/Perfileve-logo.png' },
-    { name: 'RODOFAIXA', logo: '/images/Rodofaixa-logo.webp' },
-    { name: 'CPA ARMAZÉNS GERAIS', logo: '/images/Cpa-logo.webp' },
-    { name: 'PASSAFARO', logo: '/images/Passafaro-logo.png' },
-    { name: 'SÍNTESE AGRO SCIENCE', logo: '/images/Sintese-logo.png' },
-    { name: 'SURYA DENTAL', logo: '/images/Surya-logo.jpg' },
-    { name: 'POSTELUZ', logo: '/images/Posteluz-logo.png' },
-    { name: 'SUPERBAC', logo: '/images/Superbac-logo.webp' },
+    { name: 'USINA SANTA TEREZINHA', logo: getImagePath('Usina-logo.png') },
+    { name: 'SPRAYTEC', logo: getImagePath('Spraytec-logo.png') },
+    { name: 'FORTGREEN', logo: getImagePath('Fortgreen-logo.png') },
+    { name: 'PERFILEVE', logo: getImagePath('Perfileve-logo.png') },
+    { name: 'RODOFAIXA', logo: getImagePath('Rodofaixa-logo.webp') },
+    { name: 'CPA ARMAZÉNS GERAIS', logo: getImagePath('Cpa-logo.webp') },
+    { name: 'PASSAFARO', logo: getImagePath('Passafaro-logo.png') },
+    { name: 'SÍNTESE AGRO SCIENCE', logo: getImagePath('Sintese-logo.png') },
+    { name: 'SURYA DENTAL', logo: getImagePath('Surya-logo.jpg') },
+    { name: 'POSTELUZ', logo: getImagePath('Posteluz-logo.png') },
+    { name: 'SUPERBAC', logo: getImagePath('Superbac-logo.webp') },
   ];
 
   const enlargedLogos = [

@@ -2,6 +2,8 @@
 
 Uma landing page moderna, responsiva e otimizada para a **Vertente Treinamentos Profissionais**, empresa especializada em treinamentos de Segurança do Trabalho, Qualidade e Gestão.
 
+**Acesse em:** https://www.vertentetreinamentos.com.br/
+
 ## ✨ Características
 
 - 🎨 Design moderno e profissional
